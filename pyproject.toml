@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flowstate-ai"
+version = "0.4.1"
+authors = [{name = "Daniel Skryseth"}]
+description = "Continuously collect product context and render it for AI agents"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["agents", "context", "grounding", "llm", "workflow"]
+classifiers = [
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Typing :: Typed",
+]
+dependencies = ["pydantic>=2.10.0"]
+
+[project.optional-dependencies]
+dev = ["build>=1.2.0", "pytest>=8.0.0"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+flowstate = ["py.typed"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
